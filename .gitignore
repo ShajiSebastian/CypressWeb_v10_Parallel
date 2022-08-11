@@ -6,3 +6,5 @@ mochawesome-report
 TestReport
 cypress-combined-report.json
 package-lock.json
+.DS_Store
+.history/

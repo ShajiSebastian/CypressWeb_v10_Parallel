@@ -72,4 +72,11 @@ it('Toggle Check box- check/uncheck', () => {
         })
     })
 
+if (a>1){ // execute the it block only if condition satisfies
+it.skip('Skip test', () => {
+    cy.visit("https://qavbox.github.io/demo/signup/")
+ 
+    })
+}
+
 

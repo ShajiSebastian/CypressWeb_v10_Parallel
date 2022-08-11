@@ -45,6 +45,14 @@ module.exports = defineConfig({
     // experimentalSessionAndOrigin: true, // if we want to use multiple domain origin in a single test
     'process.env.BABEL_TYPES_8_BREAKING': 'false',
     setupNodeEvents(on, config) {
+
+        // below code is used to open devtools automatically in cypress test runner
+      // on('before:browser:launch', (browser = {}, launchOptions) => {
+      //   if (browser.name === 'chrome'){
+      //     launchOptions.args.push('--auto-open-devtools-for-tabs');
+      //     return launchOptions;
+      //   }
+      // })
       
       if (config.isTextTerminal) { //optional    
         console.log('Shaji- scripts running in run mode (terminal)')
