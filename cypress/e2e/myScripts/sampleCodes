@@ -1,0 +1,20 @@
+// checking whether a particular element is present in webpage. If present it will do some actions. If not, it will skip
+
+cy.get('body').then($el => {
+    if ($el.find('.abcd').length){
+        //do action
+    }
+})
+
+// getting url and assigning to a variable
+
+let currentUrl = '';
+cy.url().then((url) => {
+    currentUrl= url
+})
+
+// checking whether a variable value contains some particular text and doing some actioins if it is present
+const isValue = currentUrl.includes('/Login/Username') || currentUrl.includes('abcd')
+if (isValue){
+    //do some actions
+}

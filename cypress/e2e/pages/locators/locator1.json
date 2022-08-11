@@ -1,0 +1,4 @@
+{
+    "usernameLocator": "#txtUsername",
+    "passwordLocator": "#txtPassword"
+}

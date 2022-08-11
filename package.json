@@ -1,0 +1,36 @@
+{
+  "name": "CypressProject1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "Comment": "Two ways we can run scripts 1.'npx cypress open' 2.'npm run scriptname' eg: npm run runAllTestsInBackground",
+    "cypressOpen": "cypress open",
+    "runAllTestsInBackground": "npx cypress run",
+    "runSpecificTestInBackground": "npx cypress run --spec \"cypress/integration/myScripts/pieChart.js\"",
+    "openBrowserToRun": "npx cypress open",
+    "runAllTestsChrome": "npx cypress run --browser chrome",
+    "runAllTestsChromiumWithPath": "cypress run --browser /usr/bin/chromium",
+    "runAllTestsWithHeaded": "npx cypress run --headed",
+    "runAllTestsWithChromeHeaded": "npx cypress run --browser chrome --headed",
+    "runAllTestsWithFirefoxHeaded": "npx cypress run --browser firefox --headed",
+    "delete:mochawesomeIndividualJSONfiles": "rm -rf mochawesome-report/",
+    "test:runScriptsAndGenerateIndividualJSONfiles": "npm run delete:mochawesomeIndividualJSONfiles && cypress run",
+    "merge:individualJSONfiles": "mochawesome-merge mochawesome-report/*.json > cypress-combined-report.json",
+    "create:html:report": "npm run merge:individualJSONfiles && marge --reportDir TestReport cypress-combined-report.json",
+    "Comments1": "To avoid getting automation code shown in html report simply pass --no-code in the merge command"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.3.0",
+    "node-xlsx": "^0.21.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.0.1"
+  }
+}
