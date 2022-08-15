@@ -6,7 +6,7 @@
   "scripts": {
     "Comment": "Two ways we can run scripts 1.'npx cypress open' 2.'npm run scriptname' eg: npm run runAllTestsInBackground",
     "cypressOpen": "cypress open",
-    "runAllTestsInBackground": "npx cypress run",
+    "runAllTestsInBackground": "npx cypress run --headless",
     "runSpecificTestInBackground": "npx cypress run --spec \"cypress/integration/myScripts/pieChart.js\"",
     "openBrowserToRun": "npx cypress open",
     "runAllTestsChrome": "npx cypress run --browser chrome",

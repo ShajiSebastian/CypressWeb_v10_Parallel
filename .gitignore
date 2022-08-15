@@ -8,3 +8,7 @@ cypress-combined-report.json
 package-lock.json
 .DS_Store
 .history/
+commandReadOuput.txt
+cypress/.DS_Store
+cypress/e2e/.DS_Store
+cypress/fixtures/.DS_Store
