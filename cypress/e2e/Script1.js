@@ -1,3 +1,5 @@
+// Sample test cases
+
 it('Script1 Testcase1',() => {
     cy.log('Script1 Testcase1 executed')
 })
