@@ -5,7 +5,7 @@ module.exports = defineConfig({
   'to disable auto run after any change in script. daefault is': true,
   'cypress open --config watchForFileChanges=false': 'cmd Command',
   '//default folder is': '/integration',
-  video: true,'//default value is': 'true',
+  video: false,'//default value is': 'true',
   screenshotOnRunFailure: true, //default is': 'true',
   watchForFilesChanges: false,
   viewportWidth: 1000,
