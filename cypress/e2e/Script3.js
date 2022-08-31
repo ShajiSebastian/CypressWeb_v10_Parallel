@@ -10,4 +10,5 @@ it('Script3 Testcase2',() => {
 
 it('Script3 Testcase3',() => {
     cy.log('Script3 Testcase3 executed')
+    cy.log('sample log')
 })
