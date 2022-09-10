@@ -5,7 +5,7 @@ on:
     types: [opened]
 jobs:
   build:
-    name: Building the suite
+    name: Building the suite now
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
