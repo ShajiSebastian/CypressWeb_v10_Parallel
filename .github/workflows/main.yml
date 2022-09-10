@@ -1,4 +1,4 @@
-name: My Cypress Tests
+name: My Cypress Tests1
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   #cypress-run:
-  cypressCICD:
+  CypressCICD:
     runs-on: ubuntu-latest
     steps:
       - name: Single line script
