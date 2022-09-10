@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Learning github action
-        uses: echo Hello, Github world!!!
+        run: echo Hello, Github world!!!
 
       - name: Learning multi line script
-        uses: echo Hello, Github world!!!
+        run: echo Hello, Github world!!!
 
       - name: Checkout the code
         uses: actions/checkout@v2
