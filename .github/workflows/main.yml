@@ -27,4 +27,3 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           build: npm install
-    # start: npx cypress run
