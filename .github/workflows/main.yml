@@ -1,22 +1,12 @@
 name: Cypress Tests
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Learning github action
-        run: echo Hello, Github world!!!
-
-      - name: Learning multi line script
-        run: echo Hello, Github world!!!
-
-      - name: Checkout the code
+      - name: Checkout
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
