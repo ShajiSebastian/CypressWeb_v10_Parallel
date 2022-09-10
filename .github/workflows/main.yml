@@ -10,7 +10,14 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+
+      - name: Learning github action
+        uses: echo Hello, Github world!!!
+
+      - name: Learning multi line script
+      uses: echo Hello, Github world!!!
+
+      - name: Checkout the code
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
