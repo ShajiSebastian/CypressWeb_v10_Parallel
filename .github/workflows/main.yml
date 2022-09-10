@@ -8,7 +8,7 @@ on:
 
 jobs:
   #cypress-run:
-  cypressCICD
+  cypressCICD:
     runs-on: ubuntu-latest
     steps:
       - name: Single line script
