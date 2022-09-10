@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Tests 2
 
 on:
   push:
@@ -10,11 +10,13 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Learning github action
-        run: echo Hello, Github world!!!!
+      - name: Single line script
+        run: echo Hello, Welcome to CICD world!!!!
 
-      - name: Learning multi line script
-        run: echo Hello, Github world!!!
+      - name: Multiline script
+        run: |
+          echo This is line1
+          echo This is line2
 
       - name: Checkout the code
         uses: actions/checkout@v2
