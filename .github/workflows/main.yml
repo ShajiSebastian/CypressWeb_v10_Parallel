@@ -10,7 +10,6 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-
       - name: Learning github action
         uses: echo Hello, Github world!!!
 
