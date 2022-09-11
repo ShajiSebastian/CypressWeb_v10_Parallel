@@ -1,12 +1,15 @@
-name: My Cypress Tests1
+name: My Cypress Tests2
 
-on: [push] #new PR,
-
+on:
+  pull_request:
+    types: [ master ]
+    
 jobs:
-  cypress-run:
+  build:
+    name: Building the suite now
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout the code
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
@@ -14,4 +17,3 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           build: npm install
-          # start: npx cypress run
