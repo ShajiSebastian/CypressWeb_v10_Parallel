@@ -3,7 +3,7 @@ name: My Cypress Tests1
 on: [push] #new branch push(before creating PR),
 
 jobs:
-  All pushes:
+  AllPushes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
