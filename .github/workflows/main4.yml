@@ -1,14 +1,14 @@
-name: My Cypress Tests2
+name: My Cypress Tests4
 
 on:
   push:
     branches: [ master ]
   pull_request:
     types: [opened]
-    
+
 jobs:
   build:
-    name: Building the suite now
+    name: All pushes(master) and all PRs(opened)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code

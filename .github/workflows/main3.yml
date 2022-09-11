@@ -1,12 +1,12 @@
-name: My Cypress Tests2
+name: My Cypress Tests3
 
 on:
   pull_request:
     types: [opened]
-    
+
 jobs:
   build:
-    name: Building the suite now
+    name: All PRs(Opened)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code

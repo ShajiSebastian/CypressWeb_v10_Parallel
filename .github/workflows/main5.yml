@@ -1,4 +1,4 @@
-name: My Cypress Tests2
+name: My Cypress Tests5
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
     
 jobs:
   build:
-    name: Building the suite now
+    name: All PRs(master)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
