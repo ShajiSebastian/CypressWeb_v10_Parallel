@@ -6,7 +6,7 @@ on:
 
 jobs:
   #cypress-run:
-  All pushes(master):
+  AllPushes-master:
     runs-on: ubuntu-latest
     steps:
       - name: Single line script

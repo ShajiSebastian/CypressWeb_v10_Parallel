@@ -6,7 +6,7 @@ on:
     
 jobs:
   build:
-    name: All PRs(master)
+    name: AllPRs-master
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code

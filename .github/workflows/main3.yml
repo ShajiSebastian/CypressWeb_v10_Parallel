@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: All PRs(Opened)
+    name: AllPRs-Opened
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
