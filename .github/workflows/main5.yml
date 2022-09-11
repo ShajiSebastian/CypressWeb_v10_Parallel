@@ -2,7 +2,7 @@ name: My Cypress Tests5
 
 on:
   pull_request:
-    types: [ master ]
+    branches: [ master ]
     
 jobs:
   build:
