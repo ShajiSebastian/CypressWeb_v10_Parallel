@@ -1,14 +1,22 @@
 name: My Cypress Tests5
 
 on:
-  pull_request:
-    branches: [ master ]
-    
+  push:
+    branches: [ master ] #merge master, 
+
 jobs:
-  build:
-    name: AllPRs-master
+  #cypress-run:
+  AllPushes-master:
     runs-on: ubuntu-latest
     steps:
+      - name: Single line script
+        run: echo Hello, Welcome to CICD world!!!!
+
+      - name: Multiline script
+        run: |
+          echo This is line1
+          echo This is line2
+
       - name: Checkout the code
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly

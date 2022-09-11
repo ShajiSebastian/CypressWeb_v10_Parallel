@@ -1,6 +1,6 @@
 name: My Cypress Tests1
 
-on: [push] #new branch push(before creating PR), merge master, 
+on: [push] #new branch push(before creating PR),new PR, merge master, 
 
 jobs:
   AllPushes:

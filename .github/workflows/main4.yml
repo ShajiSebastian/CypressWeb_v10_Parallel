@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ] #merge master, 
   pull_request:
-    types: [opened]
+    types: [ opened ] #new PRs
 
 jobs:
   build:
