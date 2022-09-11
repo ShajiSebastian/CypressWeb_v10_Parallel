@@ -2,11 +2,11 @@ name: My Cypress Tests3
 
 on:
   pull_request:
-    types: [opened]
-
+    branches: [ master ] #new PRs
+    
 jobs:
   build:
-    name: AllPRs-Opened
+    name: AllPRs-master
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
