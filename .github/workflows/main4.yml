@@ -2,7 +2,7 @@ name: My Cypress Tests4
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ] #merge master, 
   pull_request:
     types: [opened]
 

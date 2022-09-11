@@ -2,7 +2,7 @@ name: My Cypress Tests2
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ] #merge master, 
 
 jobs:
   #cypress-run:
