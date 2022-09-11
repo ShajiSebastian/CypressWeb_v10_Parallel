@@ -1,13 +1,9 @@
-name: Cypress Tests
+name: My Cypress Tests1
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push] #new branch push(before creating PR),
 
 jobs:
-  cypress-run:
+  AllPushes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
