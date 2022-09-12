@@ -1,0 +1,17 @@
+name: My Cypress Tests1_1
+
+on: [push, pull_request] #all kind of actions
+
+jobs:
+  AllPushes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          build: npm install
+          # start: npx cypress run
