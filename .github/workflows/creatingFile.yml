@@ -1,0 +1,6 @@
+name: My Cypress Tests5
+
+on:
+  push:
+    branches: [ master ] #merge master, 
+
