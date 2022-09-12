@@ -1,4 +1,4 @@
-name: My Cypress Tests5
+name: My Cypress Tests merge action
 
 on:
   push:
@@ -18,10 +18,9 @@ jobs:
           echo This is line2
 
       - name: Checkout the code
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+        uses: actions/checkout@v3
+     
       - name: Cypress run
         uses: cypress-io/github-action@v4
-        with:
-          build: npm install
+        # with:
+        #   build: npm install

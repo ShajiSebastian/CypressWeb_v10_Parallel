@@ -1,4 +1,4 @@
-name: My Cypress Tests6
+name: My Cypress Tests multiple machine
 
 on: [push] #all kind of actions
 

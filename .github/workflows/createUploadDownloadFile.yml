@@ -1,23 +1,23 @@
-name: My Cypress Tests1
+name: My Cypress Tests createUploadDownloadFile
 
-on: [push] #all kind of actions
+on: [push] # all kind of actions
 
 jobs:
   example-job:
-    name: Save output
+    name: Create File
     runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: |
           expr 1 + 1 > output.log
           
-      - name: Upload output file
+      - name: Upload file
         uses: actions/upload-artifact@v3
         with:
           name: output-log-file
           path: output.log
 
-      - name: Download a single artifact
+      - name: Download file
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
