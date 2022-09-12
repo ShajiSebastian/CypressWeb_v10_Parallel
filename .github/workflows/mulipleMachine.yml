@@ -1,4 +1,4 @@
-name: My Cypress Tests6
+name: My Cypress Tests multiple machine
 
 on: [push] #all kind of actions
 
@@ -12,7 +12,7 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      
+      # for more refer https://docs.github.com/en/actions/learn-github-actions/contexts
       - name: Check out repository code
         uses: actions/checkout@v3
       

@@ -1,0 +1,20 @@
+name: My Cypress Tests if condition
+
+on: [push, pull_request] # all kind of actions. If condition added
+
+jobs:
+  AllPushes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+  pull_request_Only:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
