@@ -5,6 +5,7 @@ on: [push] #all kind of actions
 jobs:
   example-job:
     name: Save output
+    runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: |
