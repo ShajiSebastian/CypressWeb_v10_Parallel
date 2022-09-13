@@ -1,0 +1,15 @@
+name: My Cy Tests all actions
+
+on: push
+env:
+  name: Shaji
+
+jobs:
+  usageOfEnvVariable:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Shaji
+
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Christo
+        env:
+          name: Christo
