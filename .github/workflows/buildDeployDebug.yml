@@ -1,0 +1,36 @@
+# This example workflow has three jobs: a build job that does a build, a deploy job that requires the build job, 
+# and a debug job that requires both the build and deploy jobs and runs only if there is a failure in the workflow. 
+# The deploy job also uses the needs context to access an output from the build job.
+# https://docs.github.com/en/actions/learn-github-actions/contexts
+
+name: Build and deploy
+on: push # all kind of actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # outputs:
+    #   build_id: ${{ steps.build_step.outputs.build_id }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # - name: Build
+      #   id: build_step
+      #   run: |
+      #     ./build
+      #     echo "::set-output name=build_id::$BUILD_ID"
+
+  deploy:
+    needs: build # runs only when build job completes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+
+  # debug:
+  #   needs: [build, deploy]
+  #   runs-on: ubuntu-latest
+  #   if: ${{ failure() }}
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: ./debug

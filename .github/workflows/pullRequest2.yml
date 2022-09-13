@@ -1,4 +1,4 @@
-name: My Cy Tests Pull request2
+name: Pull request2
 
 on:
   pull_request:
