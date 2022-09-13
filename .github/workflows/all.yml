@@ -3,7 +3,7 @@ name: My Cy Tests all actions
 on: push #all kind of actions
 
 jobs:
-  AllPushes:
+  linuxMachine:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -12,7 +12,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
 
-  AllPushes2:
+  macMachine:
     runs-on: macos-latest
     steps:
       - name: Checkout
