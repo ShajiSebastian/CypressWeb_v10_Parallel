@@ -1,4 +1,4 @@
-name: My Cy Tests merge action
+name: merge action
 
 on:
   push:

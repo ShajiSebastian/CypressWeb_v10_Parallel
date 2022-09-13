@@ -1,4 +1,4 @@
-name: My Cy Tests createUploadDownloadFile all actions
+name: createUploadDownloadFile
 
 on: push # all kind of actions
 

@@ -1,4 +1,4 @@
-name: My Cy Tests multiple machine all actions
+name: multiple machine
 
 on: push #all kind of actions
 

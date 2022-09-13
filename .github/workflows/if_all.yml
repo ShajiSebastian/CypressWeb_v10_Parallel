@@ -1,4 +1,4 @@
-name: My Cy Tests if condition all actions
+name: if condition
 
 on: [push, pull_request] # all kind of actions. If condition added
 

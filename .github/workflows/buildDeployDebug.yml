@@ -4,7 +4,7 @@
 # https://docs.github.com/en/actions/learn-github-actions/contexts
 
 name: Build and deploy
-on: push
+on: push # all kind of actions
 
 jobs:
   build:

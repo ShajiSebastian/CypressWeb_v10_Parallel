@@ -1,4 +1,4 @@
-name: My Cy Tests variable all actions
+name: variable usage
 
 on: push
 env:
@@ -10,8 +10,11 @@ jobs:
     env:
       name: Christo
     steps:
-      - run: echo 'Hi ${{ env.name }}'  # Hi Shaji
+      - run: echo 'Hi ${{ env.name }}'  # Hi Christo. taken most closely value
 
-      - run: echo 'Hi ${{ env.name }}'  # Hi Christo
+      - run: echo 'Hi ${{ env.name }}'  # Hi Jisto. taken most closely value
         env:
           name: Jisto
+      
+      if: ${{ env.name == 'Christo' }}
+        run: echo 'My name is Christo'

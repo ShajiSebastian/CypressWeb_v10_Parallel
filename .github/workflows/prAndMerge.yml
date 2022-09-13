@@ -1,4 +1,4 @@
-name: My Cy Tests pr and merge
+name: pr and merge
 
 on:
   push:
