@@ -7,9 +7,11 @@ env:
 jobs:
   usageOfEnvVariable:
     runs-on: ubuntu-latest
+    env:
+      name: Christo
     steps:
       - run: echo 'Hi ${{ env.name }}'  # Hi Shaji
 
       - run: echo 'Hi ${{ env.name }}'  # Hi Christo
         env:
-          name: Christo
+          name: Jisto
