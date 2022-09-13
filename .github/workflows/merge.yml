@@ -1,4 +1,4 @@
-name: My Cypress Tests merge action
+name: My Cy Tests merge action
 
 on:
   push:

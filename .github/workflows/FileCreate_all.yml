@@ -1,4 +1,4 @@
-name: My Cypress Tests createUploadDownloadFile
+name: My Cy Tests createUploadDownloadFile all actions
 
 on: [push] # all kind of actions
 

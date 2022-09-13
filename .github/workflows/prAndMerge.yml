@@ -1,4 +1,4 @@
-name: My Cypress Tests pr and merge action
+name: My Cy Tests pr and merge
 
 on:
   push:

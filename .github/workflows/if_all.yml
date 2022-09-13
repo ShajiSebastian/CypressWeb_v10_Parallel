@@ -1,4 +1,4 @@
-name: My Cypress Tests if condition
+name: My Cy Tests if condition all actions
 
 on: [push, pull_request] # all kind of actions. If condition added
 

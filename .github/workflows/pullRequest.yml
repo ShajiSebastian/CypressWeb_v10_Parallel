@@ -1,4 +1,4 @@
-name: My Cypress Tests pr action
+name: My Cy Tests pull Request
 
 on:
   pull_request:
