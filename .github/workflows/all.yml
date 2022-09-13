@@ -1,4 +1,4 @@
-name: My Cypress Tests all kind of actions
+name: My Cy Tests all actions
 
 on: [push] #all kind of actions
 
