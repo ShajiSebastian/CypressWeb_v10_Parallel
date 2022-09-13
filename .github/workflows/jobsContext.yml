@@ -1,6 +1,6 @@
-name: Reusable workflow
+name: Reusable workflow # https://docs.github.com/en/actions/learn-github-actions/contexts
 
-on:
+on: push
   workflow_call:
     # Map the workflow outputs to job outputs
     outputs:
