@@ -16,5 +16,5 @@ jobs:
         env:
           name: Jisto
       
-      # if: ${{ env.name == 'Christo' }}
-      #   run: echo 'My name is Christo'
+      - if: ${{ env.name == 'Christo' }}
+        run: echo 'My name is Christo'
