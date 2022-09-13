@@ -3,8 +3,17 @@ name: My Cy Tests all actions
 on: push #all kind of actions
 
 jobs:
-  AllPushes:
+  LinuxMachine:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+  
+  windowsMachine:
+      runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
