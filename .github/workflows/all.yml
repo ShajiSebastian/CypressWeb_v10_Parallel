@@ -3,7 +3,7 @@ name: My Cy Tests all actions
 on: push #all kind of actions
 
 jobs:
-  LinuxMachine:
+  linuxMachine:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
