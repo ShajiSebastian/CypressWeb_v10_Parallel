@@ -1,10 +1,9 @@
-# This example workflow has three jobs: a build job that does a build, a deploy job that requires the build job, 
-# and a debug job that requires both the build and deploy jobs and runs only if there is a failure in the workflow. 
-# The deploy job also uses the needs context to access an output from the build job.
-# https://docs.github.com/en/actions/learn-github-actions/contexts
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
-name: Build and deploy
-on: push # all kind of actions
+name: Scheduled job
+on:
+  schedule:
+    - cron:  '10,30,50 * * * *' # Runs every day at 5:42 and 17:42 UTC
 
 jobs:
   build:
@@ -13,7 +12,7 @@ jobs:
     #   build_id: ${{ steps.build_step.outputs.build_id }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v3 # Cloning your repository to the runner
       # - name: Build
       #   id: build_step
       #   run: |
