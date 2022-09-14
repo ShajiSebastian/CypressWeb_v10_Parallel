@@ -17,6 +17,7 @@ jobs:
     needs: build # runs only when build job completes
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3 
       - uses: cypress-io/github-action@v4
 
   result:
