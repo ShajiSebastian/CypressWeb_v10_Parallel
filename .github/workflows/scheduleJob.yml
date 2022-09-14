@@ -3,8 +3,7 @@
 name: Scheduled job
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string. Runs every day at 5:42 and 17:42 UTC
-    - cron:  '10,55 * * * *'
+    - cron:  '10,30,50 * * * *' # Runs every day at 5:42 and 17:42 UTC
 
 jobs:
   build:
