@@ -1,13 +1,10 @@
-# This example workflow has three jobs: a build job that does a build, a deploy job that requires the build job, 
-# and a debug job that requires both the build and deploy jobs and runs only if there is a failure in the workflow. 
-# The deploy job also uses the needs context to access an output from the build job.
-# https://docs.github.com/en/actions/learn-github-actions/contexts
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
 name: Scheduled job
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string. Runs every day at 5:30 and 17:30 UTC
-    - cron:  '42 5,17 * * *'
+    # * is a special character in YAML so you have to quote this string. Runs every day at 5:42 and 17:42 UTC
+    - cron:  '10,55 * * * *'
 
 jobs:
   build:
