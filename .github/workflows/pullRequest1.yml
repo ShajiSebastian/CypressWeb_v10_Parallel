@@ -2,7 +2,15 @@ name: pull Request1
 
 on:
   pull_request:
-    types: [ opened ] #new PRs,
+    types: opened #new PRs,
+    branches: master #new PRs
+
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#     branches:
+#       - master
 
 jobs:
   build:
