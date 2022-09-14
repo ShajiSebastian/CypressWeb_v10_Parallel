@@ -7,9 +7,9 @@ name: Build and deploy
 on: push # all kind of actions
 
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-latest
-    # outputs: 
+    # outputs:
     #   build_id: ${{ steps.build_step.outputs.build_id }}
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
       #     ./build
       #     echo "::set-output name=build_id::$BUILD_ID"
 
-  run:
+  deploy:
     needs: build # runs only when build job completes
     runs-on: ubuntu-latest
     steps:
