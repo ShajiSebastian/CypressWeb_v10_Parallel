@@ -1,36 +1,27 @@
-# This example workflow has three jobs: a build job that does a build, a deploy job that requires the build job, 
-# and a debug job that requires both the build and deploy jobs and runs only if there is a failure in the workflow. 
-# The deploy job also uses the needs context to access an output from the build job.
-# https://docs.github.com/en/actions/learn-github-actions/contexts
+# By default, the jobs in your workflow all run in parallel at the same time. If you have a job that must only run after another job has completed, 
+# you can use the needs keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; 
+# however, if you need the jobs to continue, you can define this using the if conditional statement.
+# In this example, the setup, build, and test jobs run in series, with build and test being dependent on the successful completion of the job that precedes them:#
 
-name: Build and deploy
+name: Build deploy test
 on: push # all kind of actions
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # outputs:
-    #   build_id: ${{ steps.build_step.outputs.build_id }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3 
-      # - name: Build
-      #   id: build_step
-      #   run: |
-      #     ./build
-      #     echo "::set-output name=build_id::$BUILD_ID"
 
-  deploy:
+  test:
     needs: build # runs only when build job completes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      # - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: actions/checkout@v3 
+      - uses: cypress-io/github-action@v4
 
-  # debug:
-  #   needs: [build, deploy]
-  #   runs-on: ubuntu-latest
-  #   if: ${{ failure() }}
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - run: ./debug
+  result:
+    needs: test # runs only when test job completes
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "series of job executed successfully"
