@@ -3,8 +3,11 @@
 # The deploy job also uses the needs context to access an output from the build job.
 # https://docs.github.com/en/actions/learn-github-actions/contexts
 
-name: Build and deploy
-on: push # all kind of actions
+name: Scheduled job
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string. Runs every day at 5:30 and 17:30 UTC
+    - cron:  '42 5,17 * * *'
 
 jobs:
   build:
