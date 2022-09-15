@@ -2,7 +2,7 @@ name: Pull request4
 
 on:
   pull_request:
-    branches: [ pr25 ] # runs when a new pr created against existing branch pr25
+    branches: [ pr25 ] # runs when a new pr created against existing branch pr25. By default we create pr against master branch
     
 jobs:
   build:

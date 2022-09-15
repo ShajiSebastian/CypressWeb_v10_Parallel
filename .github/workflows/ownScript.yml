@@ -3,7 +3,7 @@
 # however, if you need the jobs to continue, you can define this using the if conditional statement.
 # In this example, the setup, build, and test jobs run in series, with build and test being dependent on the successful completion of the job that precedes them:#
 
-name: Build deploy test
+name: My own script
 on: push # all kind of actions
 
 jobs:
