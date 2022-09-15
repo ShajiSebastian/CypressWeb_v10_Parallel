@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # - run: npm install
-      - npm ci # same as npm install
+      - run: npm ci # same as npm install
       - run: npx cypress run 
 
   result:
