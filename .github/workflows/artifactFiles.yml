@@ -44,7 +44,7 @@ jobs:
 
     # # The below script uploads screenshot and videos from cypress suite
       - name: Upload screenshot
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@master
         if: failure()
         with:
             name: screenshots
