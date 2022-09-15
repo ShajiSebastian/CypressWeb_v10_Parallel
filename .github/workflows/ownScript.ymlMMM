@@ -1,3 +1,6 @@
+# actions/checkout will actually checkout the head of our PR and then automatically merge it against the base this PR is against 
+# so if we open a PR against master, actions/checkout will checkout our branch, then merge it against master for us
+
 # By default, the jobs in your workflow all run in parallel at the same time. If you have a job that must only run after another job has completed, 
 # you can use the needs keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; 
 # however, if you need the jobs to continue, you can define this using the if conditional statement.
@@ -20,6 +23,13 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm ci # same as npm install
       - run: npx cypress run 
+    
+    #  steps:
+    #   - name: checkout
+    #     uses: actions/checkout@v3
+    #   - name: running Script
+    #     run: npm ci # same as npm install
+    #     run: npx cypress run 
 
   result:
     # if: ${{ always() }} # always runs when the test job completes successfully or unsuccessfully
