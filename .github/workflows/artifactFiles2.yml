@@ -1,0 +1,20 @@
+name: artifact2
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm install
+      - run: npx cypress run
+      - name: Collect screenshot
+        if: failure()
+        run: |
+          ./bin/makeScreenshot /tmp/screen.jpg
+      - name: Upload logs
+        uses: actions/upload-artifact@master
+        if: failure()
+        with:
+          name: screen.jpg
+          path: /tmp/screen.jpg
