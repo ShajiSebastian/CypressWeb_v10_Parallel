@@ -1,0 +1,34 @@
+name: createUploadDownloadFile
+
+on: push # all kind of actions
+
+jobs:
+  example-job:
+    name: Create File
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 1 + 1 > /tmp/output.log
+      
+      - name: Take screenshot
+        if: failure()
+        run: |
+          ./bin/makeScreenshot /tmp/screen.jpg
+      - name: Upload screenshot
+        uses: actions/upload-artifact@master # upload our screen shot to GitHub. We can download it from github (dropdown shown at upper right corner)
+        if: failure() # these steps will only run if some previous steps have failed.
+        with:
+          name: screen.jpg
+          path: /tmp/screen.jpg
+          
+      - name: Upload file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: /tmp/output.log
+
+      - name: Download file
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file
