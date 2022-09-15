@@ -5,7 +5,7 @@ it('Script1 Testcase1',() => {
 })
 
 it('Script1 Testcase2',() => {
-    cy.log('Script1 Testcase2 executed)
+    cy.log('Script1 Testcase2 executed')
 })
 
 it('Script1 Testcase3',() => {
