@@ -14,14 +14,15 @@ jobs:
         uses: actions/checkout@v3 
 
   test:
-    needs: build # runs only when build job completes
+    needs: build # runs only when build job completes successfully
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 
       - uses: cypress-io/github-action@v4
 
   result:
-    needs: test # runs only when test job completes
+    # if: ${{ always() }} # always runs when the test job completes successfully or unsuccessfully
+    needs: test # runs only when test job completes successfully
     runs-on: ubuntu-latest
     steps:
       - run: echo "series of job executed successfully"

@@ -12,6 +12,7 @@ jobs:
   pull_request_Only:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
+    # if: github.repository == 'octo-org/octo-repo-prod'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
