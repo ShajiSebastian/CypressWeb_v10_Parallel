@@ -25,20 +25,20 @@ jobs:
           name: output-log-file
 
 
-    #  # The below script take screenshot and uploads
-    #   - name: Take screenshot
-    #     if: failure()
-    #     run: |
-    #       ./bin/makeScreenshot /tmp/screen.jpg
+     # The below script take screenshot and uploads
+      - name: Take screenshot
+        if: success()
+        run: |
+          ./bin/makeScreenshot /tmp/screen.jpg
 
-    #   - name: Upload screenshot
-    #     uses: actions/upload-artifact@master # upload our screen shot to GitHub. We can download it from github (dropdown shown at upper right corner)
-    #     # if: failure() # these steps will only run if some previous steps have failed.
-    #     # if: success() && github.ref == 'refs/heads/master' # If it is master branch
-    #     if: success()
-    #     with:
-    #       name: screen.jpg
-    #       path: /tmp/screen.jpg
+      - name: Upload screenshot
+        uses: actions/upload-artifact@master # upload our screen shot to GitHub. We can download it from github (dropdown shown at upper right corner)
+        # if: failure() # these steps will only run if some previous steps have failed.
+        # if: success() && github.ref == 'refs/heads/master' # If it is master branch
+        if: success()
+        with:
+          name: screen.jpg
+          path: /tmp/screen.jpg
 
     # # The below script uploads screenshot and videos from cypress suite
     #    - uses: actions/upload-artifact@master
