@@ -44,11 +44,11 @@ jobs:
 
     # # The below script uploads screenshot and videos from cypress suite
       - name: Upload screenshot
-        if: failure()
         uses: actions/upload-artifact@master
+        if: failure()
           with:
-          name: screenshots
-          path: cypress/screenshots
+            name: screenshots
+            path: cypress/screenshots
         # there might be no screenshots created when:
         # - there are no test failures
         # so only upload screenshots if previous step has failed
