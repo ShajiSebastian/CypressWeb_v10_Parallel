@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # The below script generates a filename named output.log and path is /tmp
+    # The below script generates a filen named output.log and path is /tmp
       - shell: bash 
         run: |
           expr 1 + 1 > /tmp/output.log
 
-    #   - name: Upload file
-    #     uses: actions/upload-artifact@v3
-    #     with:
-    #       name: output-log-file # this is the name shows in github. We can download it manually
-    #       path: /tmp/output.log
+      - name: Upload file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file # this is the name shows in github. We can download it manually
+          path: /tmp/output.log
 
     #   - name: Download file # download location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
     #     uses: actions/download-artifact@v3
