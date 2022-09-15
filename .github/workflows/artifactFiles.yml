@@ -43,18 +43,21 @@ jobs:
           path: /tmp/screen.jpg
 
     # # The below script uploads screenshot and videos from cypress suite
-    #   - name: Upload screenshot
-    #     uses: actions/upload-artifact@master
-    #   with:
-    #     name: screenshots
-    #     path: cypress/screenshots
-    #     # there might be no screenshots created when:
-    #     # - there are no test failures
-    #     # so only upload screenshots if previous step has failed
-    #     if: failure()
-    # # video should always be generated
-    #   - name: Upload screenshot
-    #     uses: actions/upload-artifact@master
-    #   with:
-    #     name: videos
-    #     path: cypress/videos
+      - name: Upload screenshot
+        if: failure()
+        uses: actions/upload-artifact@master
+          with:
+          name: screenshots
+          path: cypress/screenshots
+        # there might be no screenshots created when:
+        # - there are no test failures
+        # so only upload screenshots if previous step has failed
+
+    # video should always be generated
+        
+        - name: Upload videos
+        if: failure()
+        uses: actions/upload-artifact@master
+          with:
+          name: videos
+          path: cypress/videos
