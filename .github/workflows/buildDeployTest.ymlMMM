@@ -19,8 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3 
       - uses: cypress-io/github-action@v4
-        with:
-          tests: "./cypress/e2e/Script1.js"
 
   result:
     # if: ${{ always() }} # always runs when the test job completes successfully or unsuccessfully
