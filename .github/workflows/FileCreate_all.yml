@@ -31,7 +31,7 @@ jobs:
           name: output-log-file # this is the name shows in github
           path: /tmp/output.log
 
-      # - name: Download file
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: output-log-file
+      - name: Download file
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file
