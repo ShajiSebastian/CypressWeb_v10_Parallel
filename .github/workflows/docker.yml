@@ -16,4 +16,4 @@ jobs:
         timeout-minutes: 10
         with:
           # browser: chrome
-          browser: firefox
+          browser: electron # browser should be present in our system
