@@ -4,6 +4,11 @@ on: [push, pull_request] # all kind of actions. If condition added
 
 jobs:
   AllPushes:
+      # if: |
+      # !github.event.issue.pull_request &&
+      # github.event.issue.state == 'closed' &&
+      # github.event.comment.created_at != github.event.issue.closed_at &&
+      # github.event.sender.login != 'cypress-bot'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
