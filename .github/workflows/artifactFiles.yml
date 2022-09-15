@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      
       - shell: bash # The below script generates a filename named output.log and path is /tmp
         run: |
           expr 1 + 1 > /tmp/output.log
