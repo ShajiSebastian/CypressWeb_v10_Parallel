@@ -7,48 +7,50 @@ jobs:
     name: working on artifacts
     runs-on: ubuntu-latest
     steps:
-      - shell: bash # The below script generates a filename named output.log and path is /tmp
+
+    # The below script generates a filename named output.log and path is /tmp
+      - shell: bash 
         run: |
           expr 1 + 1 > /tmp/output.log
 
-      - name: Upload file
-        uses: actions/upload-artifact@v3
-        with:
-          name: output-log-file # this is the name shows in github. We can download it manually
-          path: /tmp/output.log
+    #   - name: Upload file
+    #     uses: actions/upload-artifact@v3
+    #     with:
+    #       name: output-log-file # this is the name shows in github. We can download it manually
+    #       path: /tmp/output.log
 
-      - name: Download file # download location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
-        uses: actions/download-artifact@v3
-        with:
-          name: output-log-file
+    #   - name: Download file # download location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
+    #     uses: actions/download-artifact@v3
+    #     with:
+    #       name: output-log-file
 
 
-     # The below script take screenshot and uploads
-      - name: Take screenshot
-        if: failure()
-        run: |
-          ./bin/makeScreenshot /tmp/screen.jpg
+    #  # The below script take screenshot and uploads
+    #   - name: Take screenshot
+    #     if: failure()
+    #     run: |
+    #       ./bin/makeScreenshot /tmp/screen.jpg
 
-      - name: Upload screenshot
-        uses: actions/upload-artifact@master # upload our screen shot to GitHub. We can download it from github (dropdown shown at upper right corner)
-        # if: failure() # these steps will only run if some previous steps have failed.
-        # if: success() && github.ref == 'refs/heads/master' # If it is master branch
-        if: success()
-        with:
-          name: screen.jpg
-          path: /tmp/screen.jpg
+    #   - name: Upload screenshot
+    #     uses: actions/upload-artifact@master # upload our screen shot to GitHub. We can download it from github (dropdown shown at upper right corner)
+    #     # if: failure() # these steps will only run if some previous steps have failed.
+    #     # if: success() && github.ref == 'refs/heads/master' # If it is master branch
+    #     if: success()
+    #     with:
+    #       name: screen.jpg
+    #       path: /tmp/screen.jpg
 
-    # The below script uploads screenshot and videos from cypress suite
-       - uses: actions/upload-artifact@master
-      with:
-        name: screenshots
-        path: cypress/screenshots
-        # there might be no screenshots created when:
-        # - there are no test failures
-        # so only upload screenshots if previous step has failed
-        if: failure()
-    # video should always be generated
-    - uses: actions/upload-artifact@master
-      with:
-        name: videos
-        path: cypress/videos
+    # # The below script uploads screenshot and videos from cypress suite
+    #    - uses: actions/upload-artifact@master
+    #   with:
+    #     name: screenshots
+    #     path: cypress/screenshots
+    #     # there might be no screenshots created when:
+    #     # - there are no test failures
+    #     # so only upload screenshots if previous step has failed
+    #     if: failure()
+    # # video should always be generated
+    # - uses: actions/upload-artifact@master
+    #   with:
+    #     name: videos
+    #     path: cypress/videos
