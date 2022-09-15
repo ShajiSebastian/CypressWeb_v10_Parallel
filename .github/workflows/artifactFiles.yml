@@ -26,6 +26,8 @@ jobs:
 
 
      # The below script take screenshot and uploads
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Take screenshot
         if: success()
         run: |
