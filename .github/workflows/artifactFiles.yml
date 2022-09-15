@@ -42,7 +42,7 @@ jobs:
           name: screen.jpg
           path: /tmp/screen.jpg
 
-    # # The below script uploads screenshot and videos from cypress suite
+    # The below script uploads screenshot and videos from cypress suite
       - name: Upload screenshot
         uses: actions/upload-artifact@master
         if: failure()
@@ -54,7 +54,6 @@ jobs:
         # so only upload screenshots if previous step has failed
 
     # video should always be generated
-        
       - name: Upload videos
         uses: actions/upload-artifact@master
         if: failure()
