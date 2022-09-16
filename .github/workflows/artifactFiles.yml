@@ -46,6 +46,13 @@ jobs:
             path/to/dir-2/*
             !path/to/dir-3/*.txt
 
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
       - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
         with:
