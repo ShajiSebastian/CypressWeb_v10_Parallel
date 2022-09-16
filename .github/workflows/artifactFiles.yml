@@ -16,6 +16,7 @@ jobs:
           mkdir -p path/to/artifact-B
           echo "Lorem ipsum dolor sit amet" > path/to/artifact-A/file-A.txt
           echo "Hello world from file B" > path/to/artifact-B/file-B.txt
+          echo "compress a large file with GZip. The @actions/artifact package uses GZip to upload files. This text should have a compression ratio greater than 100% so it should get uploaded using GZip" > path/to/dir-3/gzip.txt
 
       - name: Upload file output.log 
         uses: actions/upload-artifact@v3
@@ -28,6 +29,12 @@ jobs:
         with:
           name: file A # this is the name shows in github. Can give any name. We can download it manually
           path: path/to/artifact-A/file-A.txt # should be same as created file path
+
+      - name: 'Upload Gzip artificat'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'GZip-Artifact'
+          path: path/to/dir-3/
 
       - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
@@ -51,7 +58,7 @@ jobs:
       - name: Download all Artifacts- using wild cards in the path
         uses: actions/download-artifact@v3
         with:
-          path: some/**/path # wild cards in the path
+          path: some/**/path # wild cards in the path. wildcard is actually useful while uploading
       
 
      # The below script takes screenshot and uploads
