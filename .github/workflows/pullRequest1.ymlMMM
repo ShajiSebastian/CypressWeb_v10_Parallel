@@ -12,6 +12,10 @@ on:
 #     branches:
 #       - master
 
+#on:
+#  push:
+#   branches-ignore: "dependabot/**"
+
 jobs:
   build:
     name: AllPRs-Opened

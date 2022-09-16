@@ -20,7 +20,7 @@ jobs:
       - name: Upload file output.log 
         uses: actions/upload-artifact@v3
         with:
-          name: output-log-file # this is the name shows in github. Can give any name. We can download it manually
+          name: output-log-file # optional.Can give any name. If not given will sow as 'artifact'. this is the name shows in github.  We can download it manually
           path: /tmp/output.log # should be same as created file path
 
       - name: Upload file file-A.txt
@@ -47,6 +47,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: some/other/path
+      
+      - name: Download all Artifacts- using wild cards in the path
+        uses: actions/download-artifact@v3
+        with:
+          path: some/**/path # wild cards in the path
+      
 
      # The below script takes screenshot and uploads
       - name: Checkout
