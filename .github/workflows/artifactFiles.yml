@@ -29,7 +29,7 @@ jobs:
       - name: Download artifact A
         uses: actions/download-artifact@v3
         with:
-          name: 'Artifact-A'
+          name: output-log-file # name of the artifact
           path: ~/some/path/with/a/tilde   # Test downloading an artifact using tilde expansion
 
      # The below script takes screenshot and uploads
