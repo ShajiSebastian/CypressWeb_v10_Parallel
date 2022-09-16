@@ -12,11 +12,11 @@ jobs:
       - shell: bash 
         run: |
           expr 1 + 1 > /tmp/output.log 
-          mkdir -p path/to/artifact-A
-          mkdir -p path/to/artifact-B
+          mkdir -p path/to/dir-1
+          mkdir -p path/to/dir-2
           mkdir -p path/to/dir-3
-          echo "Lorem ipsum dolor sit amet" > path/to/artifact-A/file-A.txt
-          echo "Hello world from file B" > path/to/artifact-B/file-B.txt
+          echo "Lorem ipsum dolor sit amet" > path/to/dir-1/file-A.txt
+          echo "Hello world from file B" > path/to/dir-2/file-B.txt
           echo "compress a large file with GZip. The @actions/artifact package uses GZip to upload files. This text should have a compression ratio greater than 100% so it should get uploaded using GZip" > path/to/dir-3/gzip.txt
 
       - name: Upload file output.log 
@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: file A # this is the name shows in github. Can give any name. We can download it manually
-          path: path/to/artifact-A/file-A.txt # should be same as created file path
+          path: path/to/dir-1/file-A.txt # should be same as created file path
 
       - name: 'Upload Gzip folder'
         uses: actions/upload-artifact@v3
