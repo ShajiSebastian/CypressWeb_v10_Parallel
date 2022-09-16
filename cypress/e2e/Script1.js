@@ -1,6 +1,7 @@
 // Sample test cases
 
 it('Script1 Testcase1',() => {
+    cy.visit('www.google.com')
     cy.log('Script1 Testcase1 executed')
 })
 
