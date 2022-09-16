@@ -43,7 +43,7 @@ jobs:
           path: ~/some/path/with/a/tilde   # download path /home/runner/some/path/with/a/tilde
 
       
-      - name: Download all Artifacts # if we dont mention name then it will download all artifacts
+      - name: Download all Artifacts # if we dont mention name then it will download all uploaded artifacts
         uses: actions/download-artifact@v3
         with:
           path: some/other/path
