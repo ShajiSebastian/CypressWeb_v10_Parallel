@@ -8,29 +8,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # The below script generates, uploads and downloads a file named output.log and path is /tmp
+    # The below script generates, uploads and downloads three files.
       - shell: bash 
         run: |
-          expr 1 + 1 > /tmp/output.log
+          expr 1 + 1 > /tmp/output.log 
+          mkdir -p path/to/artifact-A
+          mkdir -p path/to/artifact-B
+          echo "Lorem ipsum dolor sit amet" > path/to/artifact-A/file-A.txt
+          echo "Hello world from file B" > path/to/artifact-B/file-B.txt
 
-      - name: Upload file
+      - name: Upload file output.log 
         uses: actions/upload-artifact@v3
         with:
-          name: output-log-file # this is the name shows in github. We can download it manually
-          path: /tmp/output.log
+          name: output-log-file # this is the name shows in github. Can give any name. We can download it manually
+          path: /tmp/output.log # should be same as created file path
 
-      - name: Download file # download default location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
+      - name: Upload file file-A.txt
+        uses: actions/upload-artifact@v3
+        with:
+          name: file A # this is the name shows in github. Can give any name. We can download it manually
+          path: path/to/artifact-A/file-A.txt # should be same as created file path
+
+      - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file
-          path: some/new/path # path is optional. If didnt mention it will downlaod default location. If mentioned, deafult/some/new/path
+          name: output-log-file # file name should be same as we given in upload
+          path: some/new/path # path is optional. If didnt mention it will downlaod default path. If mentioned, deafult/some/new/path
       
    
-      - name: Download artifact A
+      - name: Download file output.log to new path
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file # name of the artifact
-          path: ~/some/path/with/a/tilde   # Test downloading an artifact using tilde expansion
+          name: output-log-file # file name should be same as we given in upload
+          path: ~/some/path/with/a/tilde   # download path /home/runner/some/path/with/a/tilde
 
      # The below script takes screenshot and uploads
       - name: Checkout
