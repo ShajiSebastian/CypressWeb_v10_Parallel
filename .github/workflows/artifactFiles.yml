@@ -42,7 +42,7 @@ jobs:
         with:
           name: 'Multiple artifacts'
           path: |
-            path/to/dir-1/*
+            path/to/dir-1/file-A.txt
             path/to/dir-2/*
             !path/to/dir-3/*.txt
 
