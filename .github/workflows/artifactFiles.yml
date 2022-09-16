@@ -31,11 +31,20 @@ jobs:
           name: file A # this is the name shows in github. Can give any name. We can download it manually
           path: path/to/artifact-A/file-A.txt # should be same as created file path
 
-      - name: 'Upload Gzip artificat'
+      - name: 'Upload Gzip folder'
         uses: actions/upload-artifact@v3
         with:
           name: 'GZip-Artifact'
           path: path/to/dir-3/
+
+      - name: 'Upload multiple files together'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'Multiple artifacts'
+          path: |
+            path/to/dir-1/*
+            path/to/dir-[23]/*
+            !path/to/dir-3/*.txt
 
       - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
