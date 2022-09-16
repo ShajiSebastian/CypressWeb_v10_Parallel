@@ -1,4 +1,4 @@
-name: createUploadDownloadFile
+name: Artifacts
 
 on: push # all kind of actions
 
@@ -8,24 +8,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # The below script generates, uploads and downloads a file named output.log and path is /tmp
+    # The below script generates, uploads and downloads three files.
       - shell: bash 
         run: |
-          expr 1 + 1 > /tmp/output.log
+          expr 1 + 1 > /tmp/output.log 
+          mkdir -p path/to/artifact-A
+          mkdir -p path/to/artifact-B
+          echo "Lorem ipsum dolor sit amet" > path/to/artifact-A/file-A.txt
+          echo "Hello world from file B" > path/to/artifact-B/file-B.txt
 
-      - name: Upload file
+      - name: Upload file output.log 
         uses: actions/upload-artifact@v3
         with:
-          name: output-log-file # this is the name shows in github. We can download it manually
-          path: /tmp/output.log
+          name: output-log-file # this is the name shows in github. Can give any name. We can download it manually
+          path: /tmp/output.log # should be same as created file path
 
-      - name: Download file # download location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
+      - name: Upload file file-A.txt
+        uses: actions/upload-artifact@v3
+        with:
+          name: file A # this is the name shows in github. Can give any name. We can download it manually
+          path: path/to/artifact-A/file-A.txt # should be same as created file path
+
+      - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file
+          name: output-log-file # file name should be same as we given in upload
+          path: some/new/path # path is optional. If didnt mention it will downlaod default path. If mentioned, deafult/some/new/path
+      
+   
+      - name: Download file output.log to new path
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file # file name should be same as we given in upload
+          path: ~/some/path/with/a/tilde   # download path /home/runner/some/path/with/a/tilde
 
+      
+      - name: Download all Artifacts # if we dont mention name then it will download all uploaded artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: some/other/path
 
-     # The below script take screenshot and uploads
+     # The below script takes screenshot and uploads
       - name: Checkout
         uses: actions/checkout@v3
       - name: Take screenshot
@@ -42,6 +65,11 @@ jobs:
           name: screen.jpg
           path: /tmp/screen.jpg
 
+      - name: Running cyress scripts
+        uses: actions/checkout@v3
+      - run: npm ci # same as npm install
+      - run: npx cypress run 
+
     # The below script uploads screenshot and videos from cypress suite
       - name: Upload screenshot
         uses: actions/upload-artifact@master
@@ -56,7 +84,7 @@ jobs:
     # video should always be generated
       - name: Upload videos
         uses: actions/upload-artifact@master
-        if: failure()
+        if: failure() # success()
         with:
             name: videos
             path: cypress/videos
