@@ -12,22 +12,39 @@ jobs:
       - shell: bash 
         run: |
           expr 1 + 1 > /tmp/output.log 
-          mkdir -p path/to/artifact-A
-          mkdir -p path/to/artifact-B
-          echo "Lorem ipsum dolor sit amet" > path/to/artifact-A/file-A.txt
-          echo "Hello world from file B" > path/to/artifact-B/file-B.txt
+          mkdir -p path/to/dir-1
+          mkdir -p path/to/dir-2
+          mkdir -p path/to/dir-3
+          echo "Lorem ipsum dolor sit amet" > path/to/dir-1/file-A.txt
+          echo "Hello world from file B" > path/to/dir-2/file-B.txt
+          echo "compress a large file with GZip. The @actions/artifact package uses GZip to upload files. This text should have a compression ratio greater than 100% so it should get uploaded using GZip" > path/to/dir-3/gzip.txt
 
       - name: Upload file output.log 
         uses: actions/upload-artifact@v3
         with:
-          name: output-log-file # this is the name shows in github. Can give any name. We can download it manually
+          name: output-log-file # optional.Can give any name. If not given will sow as 'artifact'. this is the name shows in github.  We can download it manually
           path: /tmp/output.log # should be same as created file path
 
-      - name: Upload file file-A.txt
+      # - name: Upload file file-A.txt
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: file A # this is the name shows in github. Can give any name. We can download it manually
+      #     path: path/to/dir-1/file-A.txt # should be same as created file path
+
+      - name: 'Upload Gzip folder'
         uses: actions/upload-artifact@v3
         with:
-          name: file A # this is the name shows in github. Can give any name. We can download it manually
-          path: path/to/artifact-A/file-A.txt # should be same as created file path
+          name: 'GZip-Artifact'
+          path: path/to/dir-3/
+
+      - name: 'Upload multiple files together'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'Multiple artifacts'
+          path: |
+            path/to/dir-1/file-A.txt
+            path/to/dir-2/*
+            !path/to/dir-3/*.txt
 
       - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
@@ -47,6 +64,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: some/other/path
+      
+      - name: Download all Artifacts- using wild cards in the path
+        uses: actions/download-artifact@v3
+        with:
+          path: some/**/path # wild cards in the path. wildcard is actually useful while uploading
+      
 
      # The below script takes screenshot and uploads
       - name: Checkout
