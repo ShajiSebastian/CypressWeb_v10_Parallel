@@ -1,4 +1,4 @@
-name: createUploadDownloadFile
+name: Artifacts
 
 on: push # all kind of actions
 
@@ -23,6 +23,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
+          path: some/new/path
 
 
      # The below script takes screenshot and uploads
