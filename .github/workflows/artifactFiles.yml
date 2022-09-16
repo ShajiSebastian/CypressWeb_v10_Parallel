@@ -19,12 +19,18 @@ jobs:
           name: output-log-file # this is the name shows in github. We can download it manually
           path: /tmp/output.log
 
-      - name: Download file # download location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
+      - name: Download file # download default location /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
-          path: some/new/path
-
+          path: some/new/path # path is optional. If didnt mention it will downlaod default location. If mentioned, deafult/some/new/path
+      
+   
+      - name: Download artifact A
+        uses: ./
+        with:
+          name: 'Artifact-A'
+          path: ~/some/path/with/a/tilde   # Test downloading an artifact using tilde expansion
 
      # The below script takes screenshot and uploads
       - name: Checkout
@@ -62,7 +68,7 @@ jobs:
     # video should always be generated
       - name: Upload videos
         uses: actions/upload-artifact@master
-        # if: failure()
+        if: failure() # success()
         with:
             name: videos
             path: cypress/videos
