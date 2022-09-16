@@ -2,7 +2,10 @@ name: merge action
 
 on:
   push:
-    branches: [ master ] #merge master, 
+    branches: [ master ] # while merging with master. We can mention any branch here.
+    # branches:
+    #   - '*'
+    #   - '!master' # any branch other than master:
 
 jobs:
   #cypress-run:
