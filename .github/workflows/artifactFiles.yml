@@ -27,7 +27,7 @@ jobs:
       
    
       - name: Download artifact A
-        uses: ./
+        uses: actions/download-artifact@v3
         with:
           name: 'Artifact-A'
           path: ~/some/path/with/a/tilde   # Test downloading an artifact using tilde expansion
