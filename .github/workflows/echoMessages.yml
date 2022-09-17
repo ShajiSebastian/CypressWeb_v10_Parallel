@@ -4,30 +4,15 @@
 # different machines: https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job
 # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
 
-name: multipleMachine
+name: echo messsages
 
-on: push #all kind of actions
-
-    # inputs:
-    #   tag:
-    #     description: Tag to run
-    #     required: true
-    #     type: choice
-    #     options:
-    #       - '@routes'
-    #       - '@appJs'
-    #       - '@smoke'
-    #   n:
-    #     description: Number of times to repeat the test
-    #     required: false
-    #     default: '1'
-    #     type: string
+on: push
 
 jobs:
-  AllPushes:
+  EchoMessages:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.platform }}
     steps:
       - run: echo "🖥️ The workflow is to show various echo messages and variables"
@@ -38,10 +23,5 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-
-      # - name: Print workflow inputs
-      #   run: |
-      #     echo Running tests with tag: ${{ github.event.inputs.tag }}
-      #     echo for ${{ github.event.inputs.n }} times
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
