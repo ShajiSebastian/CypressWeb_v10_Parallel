@@ -4,7 +4,7 @@
 # different machines: https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job
 # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
 
-name: multipleMachine
+name: echo messsages
 
 on: push #all kind of actions
 
