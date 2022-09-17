@@ -43,9 +43,10 @@ jobs:
     steps:
       - run: |
           echo "series of job executed successfully"
-          echo "Workspace location is ${{ RUNNER_WORKSPACE }}"
+          echo $RUNNER_WORKSPACE
           echo "We can give any commands here"
           pwd
           ls -lrt
           java --version
           whoami
+          env
