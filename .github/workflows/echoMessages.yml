@@ -18,14 +18,14 @@ on:
           - '@routes'
           - '@appJs'
           - '@smoke'
-      n:
+      number:
         description: Number of times to repeat the test
         required: false
         default: '1'
         type: string
 
 jobs:
-  AllPushes:
+  EchoMessages:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest]
@@ -43,6 +43,6 @@ jobs:
       - name: Print workflow inputs
         run: |
           echo Running tests with tag: ${{ github.event.inputs.tag }}
-          echo for ${{ github.event.inputs.n }} times
+          echo for ${{ github.event.inputs.number }} times
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
