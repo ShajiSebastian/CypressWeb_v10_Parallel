@@ -6,8 +6,8 @@
 
 name: echo messsages
 
-on:
-  workflow_dispatch:
+on: push
+
     description: Lets the user run a spec file N times in a row
     inputs:
       tag:
