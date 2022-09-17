@@ -8,26 +8,26 @@ name: echo messsages
 
 on: push #all kind of actions
 
-    # inputs:
-    #   tag:
-    #     description: Tag to run
-    #     required: true
-    #     type: choice
-    #     options:
-    #       - '@routes'
-    #       - '@appJs'
-    #       - '@smoke'
-    #   n:
-    #     description: Number of times to repeat the test
-    #     required: false
-    #     default: '1'
-    #     type: string
+    inputs:
+      tag:
+        description: Tag to run
+        required: true
+        type: choice
+        options:
+          - '@routes'
+          - '@appJs'
+          - '@smoke'
+      n:
+        description: Number of times to repeat the test
+        required: false
+        default: '1'
+        type: string
 
 jobs:
   AllPushes:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.platform }}
     steps:
       - run: echo "🖥️ The workflow is to show various echo messages and variables"
@@ -39,9 +39,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-      # - name: Print workflow inputs
-      #   run: |
-      #     echo Running tests with tag: ${{ github.event.inputs.tag }}
-      #     echo for ${{ github.event.inputs.n }} times
+      - name: Print workflow inputs
+        run: |
+          echo Running tests with tag: ${{ github.event.inputs.tag }}
+          echo for ${{ github.event.inputs.n }} times
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
