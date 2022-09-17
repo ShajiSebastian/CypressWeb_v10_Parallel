@@ -43,8 +43,8 @@ jobs:
     steps:
       - run: |
           echo "series of job executed successfully"
-          echo $RUNNER_WORKSPACE
           echo "We can give any commands here"
+          echo $RUNNER_WORKSPACE
           pwd
           ls -lrt
           java --version
