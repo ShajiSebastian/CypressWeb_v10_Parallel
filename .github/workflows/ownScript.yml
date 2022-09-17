@@ -44,5 +44,6 @@ jobs:
       - run: |
           echo "series of job executed successfully"
           echo "We can give any commands here"
+          pwd
           ls -lrt
           java --version
