@@ -41,4 +41,8 @@ jobs:
     needs: test # runs only when test job completes successfully
     runs-on: ubuntu-latest
     steps:
-      - run: echo "series of job executed successfully"
+      - run: |
+      echo "series of job executed successfully"
+      echo "We can give any commands here"
+      ls -a
+      java --version
