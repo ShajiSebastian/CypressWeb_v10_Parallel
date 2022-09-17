@@ -47,3 +47,4 @@ jobs:
           pwd
           ls -lrt
           java --version
+          whoami
