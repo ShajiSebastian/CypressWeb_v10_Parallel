@@ -8,22 +8,6 @@ name: echo messsages
 
 on: push
 
-    description: Lets the user run a spec file N times in a row
-    inputs:
-      tag:
-        description: Tag to run
-        required: true
-        type: choice
-        options:
-          - '@routes'
-          - '@appJs'
-          - '@smoke'
-      number:
-        description: Number of times to repeat the test
-        required: false
-        default: '1'
-        type: string
-
 jobs:
   EchoMessages:
     strategy:
@@ -39,10 +23,5 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-
-      - name: Print workflow inputs
-        run: |
-          echo Running tests with tag: ${{ github.event.inputs.tag }}
-          echo for ${{ github.event.inputs.number }} times
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
