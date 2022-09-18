@@ -41,7 +41,7 @@ jobs:
           name: 'GZip-Artifact'
           path: path/to/dir-3/
 
-      - name: 'Upload artifacts'
+      - name: 'Upload multiple files together'
         uses: actions/upload-artifact@v3
         with:
           name: 'Multiple artifacts'
@@ -50,7 +50,7 @@ jobs:
             path/to/dir-2/*
             !path/to/dir-3/*.txt
 
-      - name: 'Upload multiple files together'
+      - name: 'Upload artifact'
         uses: actions/upload-artifact@v3
         with:
           name: 'upload artifacts'
