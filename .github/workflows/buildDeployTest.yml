@@ -23,7 +23,7 @@ jobs:
   result:
     # if: ${{ always() }} # always runs when the test job completes successfully or unsuccessfully
     needs: [test,build] # runs only when test job completes successfully
-    needs: test # runs only when test job completes successfully
+    # needs: test # runs only when test job completes successfully
     runs-on: ubuntu-latest
     steps:
       - run: echo "series of job executed successfully"

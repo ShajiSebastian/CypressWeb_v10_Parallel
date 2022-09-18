@@ -5,10 +5,11 @@
 # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
 
 name: MultipleNodeVersion
+
 on: [push]
 
 jobs:
-  test:
+  MultiNodeJob:
     runs-on: ubuntu-latest
     strategy:
       matrix:

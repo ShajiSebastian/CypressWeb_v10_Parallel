@@ -1,4 +1,4 @@
-name: variable usage
+name: Variable usage
 
 on: push
 env:

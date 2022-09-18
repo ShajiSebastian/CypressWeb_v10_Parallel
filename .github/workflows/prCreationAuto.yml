@@ -9,7 +9,7 @@ on:
       - develop
 
 jobs:
-    pull-request:
+    pullRequestCreateAuto:
       runs-on: ubuntu-latest
       steps:
       # using v1 as repo-sync/pull-request recommends
