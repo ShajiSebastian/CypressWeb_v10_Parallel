@@ -1,10 +1,9 @@
-name: Chrome Docker
+name: Chrome browser
 
 on: push
 
 jobs:
-  # run Chrome inside a Docker container
-  chrome:
+  CypressTestChrome:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

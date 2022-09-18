@@ -3,8 +3,8 @@ name: Artifacts
 on: push # all kind of actions
 
 jobs:
-  example-job:
-    name: working on artifacts
+  Artifacts-job:
+    name: Working on artifacts
     runs-on: ubuntu-latest
     steps:
 
@@ -81,7 +81,7 @@ jobs:
           path: some/**/path # wild cards in the path. wildcard is actually useful while uploading
       
 
-     # The below script takes screenshot and uploads
+     # The below script uploads screenshot and videos from cypress suite
       - name: Checkout
         uses: actions/checkout@v3
       - name: Take screenshot
@@ -103,7 +103,6 @@ jobs:
       - run: npm ci # same as npm install
       - run: npx cypress run 
 
-    # The below script uploads screenshot and videos from cypress suite
       - name: Upload screenshot
         uses: actions/upload-artifact@master
         if: failure()
