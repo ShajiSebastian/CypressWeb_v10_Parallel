@@ -15,9 +15,12 @@ jobs:
           mkdir -p path/to/dir-1
           mkdir -p path/to/dir-2
           mkdir -p path/to/dir-3
+          mkdir -p uploads
           echo "Lorem ipsum dolor sit amet" > path/to/dir-1/file-A.txt
           echo "Hello world from file B" > path/to/dir-2/file-B.txt
           echo "compress a large file with GZip. The @actions/artifact package uses GZip to upload files. This text should have a compression ratio greater than 100% so it should get uploaded using GZip" > path/to/dir-3/gzip.txt
+          cd uploads
+          echo "opens uploads folder and created file" > shaji.txt
 
       - name: Upload file output.log 
         uses: actions/upload-artifact@v3
@@ -46,6 +49,12 @@ jobs:
             path/to/dir-1/file-A.txt
             path/to/dir-2/*
             !path/to/dir-3/*.txt
+
+      - name: 'Upload artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'upload artifacts'
+          path: uploads
 
       - name: Download file output.log to default path  # download default path /home/runner/work/CypressWeb_v10_CICD/CypressWeb_v10_CICD
         uses: actions/download-artifact@v3
