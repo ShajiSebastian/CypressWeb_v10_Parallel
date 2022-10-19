@@ -12,5 +12,5 @@ steps:
     name: cypress/included:7.0.1
     entrypoint: yarn
     args: ['npx', 'cypress', 'run']
-  env: 
-  - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
+    env: 
+    - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
