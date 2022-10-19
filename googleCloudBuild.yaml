@@ -2,7 +2,7 @@ steps:
   # install dependencies
   - id: install-dependencies
     name: node
-    entrypoint: yarn
+    entrypoint: npm
     args: ['install']
     env: 
     - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
@@ -10,7 +10,7 @@ steps:
   # run cypress
   - id: run-cypress
     name: cypress/included:7.0.1
-    entrypoint: yarn
-    args: ['npx', 'cypress', 'run']
+    entrypoint: npx
+    args: ['cypress', 'run']
     env: 
     - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
