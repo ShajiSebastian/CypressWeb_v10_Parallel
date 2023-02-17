@@ -1,7 +1,7 @@
 # https://filiphric.com/cypress-and-git-hub-actions-step-by-step-guide
 
 name: e2e-tests
-on: [worfklow_dispatch]
+on: [workflow_dispatch]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
