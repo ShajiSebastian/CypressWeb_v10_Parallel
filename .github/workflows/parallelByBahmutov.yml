@@ -1,13 +1,12 @@
 # https://glebbahmutov.com/blog/cypress-parallel-free/
 
-
-# to use orbs, must use version >= 2.1
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@2
-workflows:
-  build:
-    jobs:
-      - cypress/run:
-          parallelism: 4
-          command: npx cypress run --env split=true
+name: reusable
+on: [push]
+jobs:
+  tests:
+    # use the reusable workflow to check out the code, install dependencies
+    # and run the Cypress tests
+    # https://github.com/bahmutov/cypress-workflows
+    uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v1
+    with:
+      n: 4
