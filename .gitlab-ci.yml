@@ -1,9 +1,0 @@
-stages:          # List of stages for jobs, and their order of execution
-  - test
-
-test:       # This job runs in the build stage, which runs first.
-  image: cypress/browsers:node16.14.2-slim-chrome103-ff102
-  stage: test
-  script:
-    - npm install
-    - npx cypress run

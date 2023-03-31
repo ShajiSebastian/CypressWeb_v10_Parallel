@@ -1,4 +1,5 @@
 # https://glebbahmutov.com/blog/cypress-parallel-free/
+# This helps to run cypress tets in CI
 
 name: reusable
 on: [push]
