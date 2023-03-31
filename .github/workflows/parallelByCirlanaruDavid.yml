@@ -1,0 +1,50 @@
+# https://medium.com/@cirlanaru.david/running-tests-in-parallel-using-cypress-and-github-actions-fefd1a415303
+
+name: ParallelByCirlanaruDavid
+
+on:
+    pull_request:
+
+env:
+    APP_NAME: your-app
+
+jobs:
+    setup:
+        name: (PR) Setup 🔧
+        runs-on: ubuntu-latest
+        outputs:
+            # will contain a json string with an array of n elements, each being a string of spec files delimited by ,
+            test-chunks: ${{ steps['set-test-chunks'].outputs['test-chunks'] }}
+        steps:
+            - uses: actions/checkout@v3
+            - id: set-test-chunks
+              name: Set Chunks
+              # get all spec files from the e2e directory, group them to be at most 3 at a time and transform them to json
+              # this will output something like ["cypress/integration/test1.spec.ts, cypress/integration/test2.spec.ts, cypress/integration/test3.spec.ts", "cypress/integration/test4.spec.ts,etc.."]
+              run: echo "test-chunks=$(find cypress/e2e -type f -name "*.js" | xargs -n1 | tr ' ' ',' | jq -R . | jq -s -cM .)" >> $GITHUB_OUTPUT
+
+    run-cypress-tests:
+        needs: setup
+        name: (PR) Running Specs 🧑‍💻 - ${{ matrix.chunk }}
+        runs-on: ubuntu-latest
+        container:
+            image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+            options: --user 1001
+
+        strategy:
+            fail-fast: false
+            matrix:
+                chunk: ${{ fromJson(needs.setup.outputs['test-chunks']) }}
+
+        timeout-minutes: 45
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v3
+            #  run all Cypress tests
+            - name: Cypress run 🧪
+              uses: cypress-io/github-action@v3
+              if: github.event_name == 'pull_request'
+              with:
+                  # --spec here will just contain a string with multiple spec files returned by the split logic from the setup job
+                  command: npx cypress run -b chrome --spec=${{ matrix.chunk }}
+                  browser: chrome
