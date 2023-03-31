@@ -1,6 +1,6 @@
 # https://medium.com/@cirlanaru.david/running-tests-in-parallel-using-cypress-and-github-actions-fefd1a415303
 
-name: ParallelByCirlanaruDavid
+name: CirlanaruDavidParallel
 
 on:
     pull_request:
